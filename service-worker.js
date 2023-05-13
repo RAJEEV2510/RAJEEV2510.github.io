@@ -3,7 +3,7 @@
  *
  * You'll need to register this file in your web app and you should
  * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGps
+ * See https://goo.gl/nhQhGp
  *
  * The rest of the code is auto-generated. Please don't update this file
  * directly; instead, make changes to your Workbox build configuration
@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "./precache-manifest.5d15e15f0aa50b0710983819ff48227d.js"
+  "./precache-manifest.9a22712b1dbb0990c7c9ddca3ee05768.js"
 );
 
 self.addEventListener('message', (event) => {
