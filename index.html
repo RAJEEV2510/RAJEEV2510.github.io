@@ -109,30 +109,7 @@
     @media (max-width: 520px) { nav .hide-sm { display: none; } }
 
     /* hero */
-    .hero { padding: 132px 0 56px; display: grid; grid-template-columns: minmax(0, 1fr) clamp(200px, 30vw, 290px); gap: clamp(24px, 5vw, 48px); align-items: center; }
-    .hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); }
-    .portrait { position: relative; margin: 0; }
-    .portrait::before {
-      content: ""; position: absolute; inset: -10px; border-radius: 32px; z-index: -1;
-      background: linear-gradient(140deg, color-mix(in srgb, var(--accent) 55%, transparent), transparent 45%, color-mix(in srgb, var(--accent-2) 45%, transparent));
-      filter: blur(22px); opacity: .55;
-    }
-    .portrait img {
-      display: block; width: 100%; height: auto; aspect-ratio: 5 / 6; object-fit: cover; border-radius: 24px;
-      border: 1px solid var(--border-strong);
-    }
-    .portrait figcaption {
-      position: absolute; left: 14px; bottom: 14px; display: inline-flex; align-items: center; gap: 8px;
-      padding: 7px 12px; border-radius: 999px; font-size: .78rem; color: #f5ede3;
-      background: rgba(15, 13, 11, .62); border: 1px solid rgba(255, 244, 230, .16);
-      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    }
-    @media (max-width: 600px) {
-      .hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: 104px; }
-      .portrait { order: -1; width: 100%; }
-      .portrait::before { inset: -6px; filter: blur(18px); opacity: .4; }
-      .portrait img { aspect-ratio: 4 / 3.4; object-position: 50% 22%; border-radius: 20px; }
-    }
+    .hero { padding: 140px 0 56px; }
     .status {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 12px 6px 10px; border-radius: 999px; font-size: .82rem; color: var(--muted);
@@ -145,7 +122,7 @@
     }
     @keyframes ping { 75%, 100% { transform: scale(2.4); opacity: 0; } }
     h1 {
-      font-size: clamp(2.5rem, 7.5vw, 4.4rem); line-height: 1.02; letter-spacing: -.045em;
+      font-size: clamp(2.15rem, 7.5vw, 4.4rem); line-height: 1.02; letter-spacing: -.045em;
       font-weight: 600; margin: 22px 0 20px;
     }
     .grad {
@@ -309,7 +286,6 @@
 
   <main class="wrap" id="top">
     <header class="hero">
-      <div>
       <span class="status reveal"><span class="dot"></span> Open to backend &amp; distributed-systems roles</span>
       <h1 class="reveal">Hi, I'm Rajeev.<br>I build <span class="grad">real-time backends</span> that stay calm under load.</h1>
       <p class="lead reveal">
@@ -327,11 +303,6 @@
           LinkedIn
         </a>
       </div>
-      </div>
-      <figure class="portrait reveal">
-        <img src="img/rajeev.jpg" alt="Portrait of Rajeev Kumar" width="600" height="720" fetchpriority="high">
-        <figcaption><span class="dot"></span> Gurugram, India</figcaption>
-      </figure>
     </header>
 
     <section id="about">
