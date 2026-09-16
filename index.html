@@ -4,46 +4,62 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rajeev Kumar</title>
-  <meta name="description" content="Rajeev Kumar — Software Engineer building backend-heavy, event-driven systems with .NET Core, RabbitMQ and PostgreSQL/TimescaleDB.">
-  <meta property="og:title" content="Rajeev Kumar — Software Engineer">
-  <meta property="og:description" content=".NET Core, event-driven systems, PostgreSQL/TimescaleDB. Open-source contributor to OrchardCore.">
+  <meta name="description" content="Rajeev Kumar — backend engineer building event-driven, real-time systems with .NET, RabbitMQ and PostgreSQL/TimescaleDB.">
+  <meta property="og:title" content="Rajeev Kumar — Backend Engineer">
+  <meta property="og:description" content=".NET, event-driven systems, PostgreSQL/TimescaleDB. Open-source contributor to OrchardCore.">
   <meta property="og:url" content="https://rajeev2510.github.io/">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+  <meta name="theme-color" content="#0f0d0b">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23f59e0b'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='700' text-anchor='middle' fill='%230f0d0b'>R</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f1e8;
-      --surface: #fffaf3;
-      --text: #3a2f28;
-      --muted: #7a6b5f;
-      --accent: #b5652f;
-      --accent-soft: #f1dfcc;
-      --border: #e7dccd;
-      --shadow: 0 1px 2px rgba(58, 47, 40, .05), 0 6px 18px rgba(58, 47, 40, .05);
+      --bg: #0f0d0b;
+      --bg-2: #16130f;
+      --card: rgba(255, 244, 230, .04);
+      --card-hover: rgba(255, 244, 230, .07);
+      --border: rgba(255, 244, 230, .09);
+      --border-strong: rgba(255, 244, 230, .18);
+      --text: #f5ede3;
+      --muted: #a8998a;
+      --faint: #6f6356;
+      --accent: #f59e0b;
+      --accent-2: #fb7185;
+      --glow: rgba(245, 158, 11, .16);
+      --green: #4ade80;
     }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #1f1a17;
-        --surface: #29221e;
-        --text: #efe4d6;
-        --muted: #b3a393;
-        --accent: #e39a62;
-        --accent-soft: #3d2f25;
-        --border: #3a302a;
-        --shadow: none;
+    :root[data-theme="light"] {
+      --bg: #faf6f0;
+      --bg-2: #f3ece2;
+      --card: rgba(255, 255, 255, .7);
+      --card-hover: #ffffff;
+      --border: rgba(60, 40, 20, .1);
+      --border-strong: rgba(60, 40, 20, .2);
+      --text: #1f1a15;
+      --muted: #6b5d50;
+      --faint: #9a8b7c;
+      --accent: #d97706;
+      --accent-2: #e11d48;
+      --glow: rgba(217, 119, 6, .14);
+      --green: #16a34a;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #faf6f0;
+        --bg-2: #f3ece2;
+        --card: rgba(255, 255, 255, .7);
+        --card-hover: #ffffff;
+        --border: rgba(60, 40, 20, .1);
+        --border-strong: rgba(60, 40, 20, .2);
+        --text: #1f1a15;
+        --muted: #6b5d50;
+        --faint: #9a8b7c;
+        --accent: #d97706;
+        --accent-2: #e11d48;
+        --glow: rgba(217, 119, 6, .14);
+        --green: #16a34a;
       }
-    }
-    :root[data-theme="dark"] {
-      --bg: #1f1a17;
-      --surface: #29221e;
-      --text: #efe4d6;
-      --muted: #b3a393;
-      --accent: #e39a62;
-      --accent-soft: #3d2f25;
-      --border: #3a302a;
-      --shadow: none;
     }
 
     * { box-sizing: border-box; }
@@ -52,260 +68,363 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font: 16px/1.65 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      font: 16px/1.6 Geist, Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; text-underline-offset: 3px; }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background:
+        radial-gradient(600px 400px at 15% -5%, var(--glow), transparent 70%),
+        radial-gradient(500px 380px at 95% 10%, rgba(251, 113, 133, .08), transparent 70%);
+    }
+    body::after {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .5;
+      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(to bottom, #000, transparent 60%);
+      -webkit-mask-image: linear-gradient(to bottom, #000, transparent 60%);
+    }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--accent); color: #0f0d0b; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+    .mono { font-family: "Geist Mono", ui-monospace, Menlo, monospace; }
 
     /* nav */
     nav {
-      position: sticky; top: 0; z-index: 10;
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
+      position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 20;
+      display: flex; align-items: center; gap: 2px; padding: 5px;
+      background: color-mix(in srgb, var(--bg) 70%, transparent);
+      border: 1px solid var(--border); border-radius: 999px;
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      max-width: calc(100% - 24px);
     }
-    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 12px; }
-    .brand { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 1.1rem; color: var(--text); }
-    .links { display: flex; align-items: center; gap: 18px; font-size: .92rem; }
-    .links a { color: var(--muted); }
-    .links a:hover { color: var(--text); text-decoration: none; }
-    .theme {
-      border: 1px solid var(--border); background: var(--surface); color: var(--text);
-      width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: .95rem;
+    nav a, nav button {
+      font: 500 .86rem/1 Geist, system-ui, sans-serif; color: var(--muted);
+      padding: 9px 13px; border-radius: 999px; border: 0; background: none; cursor: pointer;
+      transition: color .2s, background .2s; white-space: nowrap;
     }
-    @media (max-width: 600px) { .links a.hide-sm { display: none; } }
+    nav a:hover, nav button:hover { color: var(--text); background: var(--card-hover); }
+    nav .logo { color: var(--text); font-weight: 700; }
+    @media (max-width: 520px) { nav .hide-sm { display: none; } }
 
     /* hero */
-    header.hero { padding: 72px 0 48px; }
-    .hello { color: var(--accent); font-weight: 500; margin: 0 0 8px; }
-    h1 {
-      font-family: Fraunces, Georgia, serif; font-weight: 600;
-      font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1.1; margin: 0 0 16px;
+    .hero { padding: 140px 0 56px; }
+    .status {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px 6px 10px; border-radius: 999px; font-size: .82rem; color: var(--muted);
+      border: 1px solid var(--border); background: var(--card);
     }
-    .lead { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 0 28px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); position: relative; }
+    .dot::after {
+      content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--green);
+      animation: ping 1.8s cubic-bezier(0, 0, .2, 1) infinite;
+    }
+    @keyframes ping { 75%, 100% { transform: scale(2.4); opacity: 0; } }
+    h1 {
+      font-size: clamp(2.5rem, 7.5vw, 4.4rem); line-height: 1.02; letter-spacing: -.045em;
+      font-weight: 600; margin: 22px 0 20px;
+    }
+    .grad {
+      background: linear-gradient(100deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead { font-size: clamp(1.02rem, 2.2vw, 1.18rem); color: var(--muted); max-width: 620px; margin: 0 0 32px; }
+    .lead b { color: var(--text); font-weight: 500; }
     .actions { display: flex; flex-wrap: wrap; gap: 10px; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 18px; border-radius: 999px; font-weight: 500; font-size: .95rem;
-      border: 1px solid var(--border); background: var(--surface); color: var(--text);
+      padding: 11px 18px; border-radius: 12px; font-weight: 500; font-size: .94rem;
+      border: 1px solid var(--border-strong); background: var(--card); color: var(--text);
+      transition: transform .2s, background .2s, border-color .2s;
     }
-    .btn:hover { text-decoration: none; border-color: var(--accent); }
-    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .btn.primary:hover { filter: brightness(1.05); }
-    [data-theme="dark"] .btn.primary { color: #1f1a17; }
-    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.primary { color: #1f1a17; } }
-
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
-    .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; box-shadow: var(--shadow); }
-    .stat b { display: block; font-family: Fraunces, Georgia, serif; font-size: 1.6rem; font-weight: 600; }
-    .stat span { color: var(--muted); font-size: .85rem; }
-    @media (max-width: 520px) { .stats { grid-template-columns: 1fr; } }
+    .btn:hover { transform: translateY(-2px); background: var(--card-hover); }
+    .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .btn svg { width: 16px; height: 16px; }
 
     /* sections */
-    section { padding: 40px 0; border-top: 1px dashed var(--border); }
-    h2 { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 1.6rem; margin: 0 0 20px; }
-    h3 { font-size: 1.02rem; margin: 0; font-weight: 600; }
-    .muted { color: var(--muted); }
+    section { padding: 56px 0; }
+    .label { display: flex; align-items: center; gap: 12px; color: var(--faint); font-size: .8rem; margin-bottom: 22px; }
+    .label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.1rem); letter-spacing: -.03em; font-weight: 600; margin: 0 0 24px; }
+    h3 { font-size: 1.04rem; font-weight: 600; margin: 0; letter-spacing: -.01em; }
 
     .card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
-      padding: 20px 22px; box-shadow: var(--shadow);
+      position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+      padding: 22px; transition: transform .25s, border-color .25s, background .25s;
     }
-    .card + .card { margin-top: 14px; }
-    .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-    .date { color: var(--muted); font-size: .88rem; white-space: nowrap; }
-    ul.points { margin: 12px 0 0; padding-left: 18px; }
-    ul.points li { margin: 6px 0; }
-    ul.points li::marker { color: var(--accent); }
+    a.card:hover, .card.lift:hover { transform: translateY(-3px); border-color: var(--border-strong); background: var(--card-hover); }
+    .card p { color: var(--muted); margin: 8px 0 0; font-size: .95rem; }
 
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .grid .card + .card { margin-top: 0; }
-    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
-    .card p { margin: 8px 0 0; font-size: .95rem; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-    .tag { background: var(--accent-soft); color: var(--text); font-size: .78rem; padding: 3px 10px; border-radius: 999px; }
-    .card a.more { display: inline-block; margin-top: 12px; font-size: .9rem; font-weight: 500; }
+    .bento > *, .projects > *, .skills > *, .timeline > * { min-width: 0; }
+    h1, h2, h3, p, li { overflow-wrap: break-word; }
 
-    .skills { display: grid; gap: 12px; }
-    .skill { display: grid; grid-template-columns: 170px 1fr; gap: 12px; align-items: start; }
-    .skill b { font-weight: 600; font-size: .95rem; }
-    @media (max-width: 560px) { .skill { grid-template-columns: 1fr; gap: 4px; } }
+    /* bento */
+    .bento { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+    .span-2 { grid-column: span 2; } .span-3 { grid-column: span 3; } .span-4 { grid-column: span 4; }
+    @media (max-width: 700px) { .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); } .span-2, .span-3, .span-4 { grid-column: span 2; } .bento .half { grid-column: span 1; } }
+    .big { font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 600; letter-spacing: -.04em; line-height: 1; }
+    .small { color: var(--muted); font-size: .86rem; margin-top: 8px; }
+    .kicker { font-size: .74rem; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
+    .oss { background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%), var(--card); }
+    .arrow { position: absolute; top: 20px; right: 20px; color: var(--faint); transition: transform .25s, color .25s; }
+    a.card:hover .arrow { transform: translate(3px, -3px); color: var(--accent); }
+    .code { font-size: .8rem; overflow-x: auto; line-height: 1.7; color: var(--muted); margin-top: 12px; white-space: pre; overflow: hidden; }
+    .code .k { color: var(--accent); } .code .s { color: var(--green); }
 
-    footer { padding: 40px 0 56px; border-top: 1px dashed var(--border); text-align: center; }
-    footer p { margin: 6px 0; }
+    /* timeline */
+    .timeline { position: relative; padding-left: 26px; }
+    .timeline::before { content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(var(--accent), var(--border)); }
+    .job { position: relative; }
+    .job + .job { margin-top: 14px; }
+    .job::before {
+      content: ""; position: absolute; left: -26px; top: 26px; width: 11px; height: 11px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--accent);
+    }
+    .row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+    .date { color: var(--faint); font-size: .8rem; }
+    .role { color: var(--muted); font-size: .92rem; margin-top: 2px; }
+    ul.points { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 9px; }
+    ul.points li { position: relative; padding-left: 20px; color: var(--muted); font-size: .95rem; }
+    ul.points li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+    ul.points b { color: var(--text); font-weight: 500; }
+
+    /* projects */
+    .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    @media (max-width: 640px) { .projects { grid-template-columns: minmax(0, 1fr); } }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .tag { font-size: .72rem; padding: 4px 9px; border-radius: 7px; border: 1px solid var(--border); color: var(--muted); }
+    .sub { color: var(--faint); font-size: .85rem; margin: 36px 0 12px; }
+
+    /* skills */
+    .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    @media (max-width: 640px) { .skills { grid-template-columns: minmax(0, 1fr); } }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .chip { font-size: .84rem; padding: 5px 11px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--border); }
+
+    /* contact */
+    .cta {
+      text-align: center; padding: 56px 22px; border-radius: 24px; position: relative; overflow: hidden;
+      border: 1px solid var(--border-strong);
+      background: radial-gradient(420px 220px at 50% 0%, var(--glow), transparent 75%), var(--card);
+    }
+    .cta h2 { margin-bottom: 10px; }
+    .cta p { color: var(--muted); margin: 0 auto 26px; max-width: 460px; }
+    .cta .actions { justify-content: center; }
+    footer { padding: 36px 0 48px; color: var(--faint); font-size: .82rem; }
+    footer .row { align-items: center; }
+
+    /* reveal */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .dot::after { animation: none; }
+      .btn, .card, .arrow { transition: none; }
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="wrap">
-      <a class="brand" href="#top">Rajeev Kumar</a>
-      <div class="links">
-        <a href="#experience" class="hide-sm">Experience</a>
-        <a href="#projects" class="hide-sm">Projects</a>
-        <a href="#skills" class="hide-sm">Skills</a>
-        <a href="#contact">Contact</a>
-        <button class="theme" id="theme" aria-label="Toggle dark mode">☾</button>
-      </div>
-    </div>
+  <nav aria-label="Main">
+    <a href="#top" class="logo">RK</a>
+    <a href="#about" class="hide-sm">About</a>
+    <a href="#work">Work</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button id="theme" aria-label="Toggle theme">◐</button>
   </nav>
 
   <main class="wrap" id="top">
     <header class="hero">
-      <p class="hello">Hi, I'm Rajeev 👋</p>
-      <h1>I build calm, reliable backends for busy real-time systems.</h1>
-      <p class="lead">
-        Software Engineer with 5 years of experience on a city-scale IoT and video-analytics platform.
-        I work mostly with .NET Core, event-driven messaging (RabbitMQ, MQTT, SignalR) and
-        PostgreSQL / TimescaleDB, and I contribute to open source.
+      <span class="status reveal"><span class="dot"></span> Open to backend &amp; distributed-systems roles</span>
+      <h1 class="reveal">Hi, I'm Rajeev.<br>I build <span class="grad">real-time backends</span> that stay calm under load.</h1>
+      <p class="lead reveal">
+        Backend engineer with <b>5 years</b> of shipping .NET systems for a city-scale IoT and video-analytics platform —
+        event-driven pipelines, <b>RabbitMQ</b>, and <b>PostgreSQL / TimescaleDB</b> tuned for throughput.
       </p>
-      <div class="actions">
-        <a class="btn primary" href="mailto:rajeevupadhyay608@gmail.com">Say hello</a>
-        <a class="btn" href="https://github.com/RAJEEV2510" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/rajeev-kumar-a23791193/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-      <div class="stats">
-        <div class="stat"><b>13,000+</b><span>connected devices supported</span></div>
-        <div class="stat"><b>4–6×</b><span>faster metadata ingestion</span></div>
-        <div class="stat"><b>5 yrs</b><span>building .NET systems</span></div>
+      <div class="actions reveal">
+        <a class="btn primary" href="mailto:rajeevupadhyay608@gmail.com">Get in touch</a>
+        <a class="btn" href="https://github.com/RAJEEV2510" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/rajeev-kumar-a23791193/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Zm1.8 13.1H3.5V9h3.6v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></svg>
+          LinkedIn
+        </a>
       </div>
     </header>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="card">
-        <div class="row">
-          <h3>Software Engineer · i2V Systems</h3>
-          <span class="date">Oct 2021 – Present</span>
+    <section id="about">
+      <div class="label mono reveal">01 — at a glance</div>
+      <div class="bento">
+        <div class="card lift span-2 half reveal">
+          <div class="kicker">Scale</div>
+          <div class="big" style="margin-top:14px">13k+</div>
+          <div class="small">connected devices on one platform</div>
         </div>
-        <ul class="points">
-          <li>Architected backend services for a city-scale IoT platform managing 13,000+ devices (10,000 cameras, 2,000 streetlights, 1,000 industrial IoT devices).</li>
-          <li>Engineered an event-driven ingestion pipeline on RabbitMQ/MQTT with idempotent consumers and ack/nack retries, sustaining 100+ events/sec at 99.5%+ delivery success.</li>
-          <li>Integrated an external AI vision-inference service with cancellation-aware calls, health checks, and live connection monitoring via SignalR.</li>
-          <li>Owned the Windows and Docker releases of the product — preparing, packaging, and validating release builds.</li>
-          <li>Built secure REST APIs and standardized Angular apps on a Facade-based layered architecture.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="row">
-          <h3>Software Engineering Intern · i2V Systems</h3>
-          <span class="date">2021</span>
+        <div class="card lift span-2 half reveal">
+          <div class="kicker">Throughput</div>
+          <div class="big" style="margin-top:14px"><span class="grad">4–6×</span></div>
+          <div class="small">70 → 300+ frames/sec ingestion</div>
         </div>
-        <p class="muted">Built and shipped .NET Core REST APIs and Angular features across backend and frontend modules.</p>
+        <div class="card lift span-2 reveal">
+          <div class="kicker">Reliability</div>
+          <div class="big" style="margin-top:14px">99.5%</div>
+          <div class="small">delivery success at 100+ events/sec</div>
+        </div>
+        <a class="card oss span-4 reveal" href="https://github.com/OrchardCMS/OrchardCore/pull/19891" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="kicker">Open source</div>
+          <h3 style="margin-top:12px">Contributor to OrchardCore</h3>
+          <p>Merged PR #19891 in the Media module of the ASP.NET Core CMS — traced a user-reported admin issue to its root cause and landed the fix through maintainer review.</p>
+        </a>
+        <div class="card span-2 reveal">
+          <div class="kicker">Daily stack</div>
+          <div class="code mono"><span class="k">var</span> me = <span class="k">new</span> Engineer {
+  Stack = <span class="s">".NET"</span>,
+  Bus   = <span class="s">"RabbitMQ"</span>,
+  Db    = <span class="s">"Postgres"</span>,
+  Base  = <span class="s">"Gurugram"</span>
+};</div>
+        </div>
       </div>
     </section>
 
-    <section id="open-source">
-      <h2>Open Source</h2>
-      <div class="card">
-        <div class="row">
-          <h3>OrchardCore <span class="muted" style="font-weight:400">· ASP.NET Core CMS</span></h3>
-          <span class="date">2026</span>
+    <section id="work">
+      <div class="label mono reveal">02 — experience</div>
+      <h2 class="reveal">Where I've worked</h2>
+      <div class="timeline">
+        <div class="card job reveal">
+          <div class="row">
+            <h3>i2V Systems</h3>
+            <span class="date mono">Oct 2021 — Now</span>
+          </div>
+          <div class="role">Software Engineer</div>
+          <ul class="points">
+            <li>Architected backend services for a <b>city-scale IoT platform</b> — 10,000 cameras, 2,000 streetlights, 1,000 industrial devices.</li>
+            <li>Built an <b>event-driven ingestion pipeline</b> on RabbitMQ/MQTT with idempotent consumers and ack/nack retries.</li>
+            <li>Integrated an <b>AI vision-inference service</b> with cancellation-aware calls, health checks and live SignalR status.</li>
+            <li>Owned the <b>Windows and Docker releases</b> of the product — packaging and validating every release build.</li>
+            <li>Standardized Angular apps on a <b>Facade-based layered architecture</b> and shipped secure REST APIs.</li>
+          </ul>
         </div>
-        <p>Merged contribution to the Media module: traced a user-reported admin usability issue to its root cause, fixed it across file and folder workflows, and got it merged through maintainer code review.</p>
-        <a class="more" href="https://github.com/OrchardCMS/OrchardCore/pull/19891" target="_blank" rel="noopener">View PR #19891 →</a>
+        <div class="card job reveal">
+          <div class="row">
+            <h3>i2V Systems</h3>
+            <span class="date mono">2021</span>
+          </div>
+          <div class="role">Software Engineering Intern</div>
+          <p>Shipped .NET Core REST APIs and Angular features across backend and frontend modules.</p>
+        </div>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <p class="muted" style="margin-top:-8px">Things I've built on GitHub</p>
-      <div class="grid">
-        <div class="card">
+      <div class="label mono reveal">03 — projects</div>
+      <h2 class="reveal">Things I've built</h2>
+      <div class="projects">
+        <a class="card reveal" href="https://github.com/RAJEEV2510/dotnet-event-pipeline" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
           <h3>dotnet-event-pipeline</h3>
-          <p>High-throughput event pipeline handling 100k+ events/min with a transactional outbox, PostgreSQL COPY, and System.Threading.Channels.</p>
-          <div class="tags"><span class="tag">.NET</span><span class="tag">RabbitMQ</span><span class="tag">PostgreSQL</span></div>
-          <a class="more" href="https://github.com/RAJEEV2510/dotnet-event-pipeline" target="_blank" rel="noopener">View code →</a>
-        </div>
-        <div class="card">
+          <p>Event pipeline handling 100k+ events/min with a transactional outbox, PostgreSQL COPY and System.Threading.Channels.</p>
+          <div class="tags mono"><span class="tag">.NET</span><span class="tag">RabbitMQ</span><span class="tag">PostgreSQL</span></div>
+        </a>
+        <a class="card reveal" href="https://github.com/RAJEEV2510/efcore-dapper-bulk" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
           <h3>efcore-dapper-bulk</h3>
-          <p>Hybrid EF Core + Dapper data layer for PostgreSQL — bulk inserts and upserts at 1M-row scale using COPY and UNNEST.</p>
-          <div class="tags"><span class="tag">ASP.NET Core 8</span><span class="tag">EF Core</span><span class="tag">Dapper</span></div>
-          <a class="more" href="https://github.com/RAJEEV2510/efcore-dapper-bulk" target="_blank" rel="noopener">View code →</a>
-        </div>
-        <div class="card">
+          <p>Hybrid EF Core + Dapper data layer — bulk inserts and upserts at 1M-row scale with COPY and UNNEST.</p>
+          <div class="tags mono"><span class="tag">ASP.NET Core 8</span><span class="tag">EF Core</span><span class="tag">Dapper</span></div>
+        </a>
+        <a class="card reveal" href="https://github.com/RAJEEV2510/dyuti-os" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
           <h3>Dyuti OS</h3>
-          <p>An India-first desktop OS: a scripted, reproducible pipeline that builds a bootable, installable live ISO with Indian-language support.</p>
-          <div class="tags"><span class="tag">Linux</span><span class="tag">Shell</span></div>
-          <a class="more" href="https://github.com/RAJEEV2510/dyuti-os" target="_blank" rel="noopener">View code →</a>
+          <p>India-first desktop OS — a reproducible pipeline that builds a bootable live ISO with Indian-language support.</p>
+          <div class="tags mono"><span class="tag">Linux</span><span class="tag">Shell</span></div>
+        </a>
+        <div class="card lift reveal">
+          <h3>TimescaleDB Ingestion</h3>
+          <p>Per-frame metadata for ~400 cameras. Removed a single-threaded bottleneck: 70 → 300+ frames/sec.</p>
+          <div class="tags mono"><span class="tag">.NET</span><span class="tag">TimescaleDB</span><span class="tag">at i2V</span></div>
         </div>
       </div>
 
-      <p class="muted" style="margin:32px 0 14px">Work I led at i2V</p>
-      <div class="grid">
-        <div class="card">
-          <h3>TimescaleDB Ingestion Pipeline</h3>
-          <p>Per-frame metadata ingestion for ~400 cameras. Removed a single-threaded bottleneck to lift throughput from 70 to 300+ frames/sec.</p>
-          <div class="tags"><span class="tag">.NET Core</span><span class="tag">TimescaleDB</span></div>
-        </div>
-        <div class="card">
+      <div class="sub mono reveal">// more from i2V</div>
+      <div class="projects">
+        <div class="card lift reveal">
           <h3>Face Recognition System</h3>
-          <p>Bulk enrollment, watchlist matching, and deduplication with async progress and cancellation over SignalR.</p>
-          <div class="tags"><span class="tag">.NET Core</span><span class="tag">PostgreSQL</span><span class="tag">SignalR</span></div>
+          <p>Bulk enrollment, watchlist matching and deduplication with live progress over SignalR.</p>
+          <div class="tags mono"><span class="tag">.NET</span><span class="tag">PostgreSQL</span><span class="tag">SignalR</span></div>
         </div>
-        <div class="card">
+        <div class="card lift reveal">
           <h3>ANPR Module</h3>
-          <p>Number plate recognition module on Clean Architecture with EF Core migrations, caching, and versioned REST APIs.</p>
-          <div class="tags"><span class="tag">.NET Core</span><span class="tag">EF Core</span></div>
+          <p>Number-plate recognition on Clean Architecture with EF Core migrations, caching and versioned APIs.</p>
+          <div class="tags mono"><span class="tag">.NET</span><span class="tag">EF Core</span></div>
         </div>
-        <div class="card">
+        <div class="card lift reveal">
+          <h3>ICCC Integration Layer</h3>
+          <p>Node registration, remote resync and RabbitMQ connection lifecycle across multi-node deployments.</p>
+          <div class="tags mono"><span class="tag">.NET</span><span class="tag">RabbitMQ</span></div>
+        </div>
+        <div class="card lift reveal">
           <h3>GIS / Map Module</h3>
-          <p>Real-time placement and live event overlay of cameras and IoT devices on interactive maps.</p>
-          <div class="tags"><span class="tag">Angular</span><span class="tag">PostGIS</span><span class="tag">OpenLayers</span></div>
+          <p>Live placement and event overlay of cameras and IoT devices on interactive maps.</p>
+          <div class="tags mono"><span class="tag">Angular</span><span class="tag">PostGIS</span><span class="tag">OpenLayers</span></div>
         </div>
       </div>
     </section>
 
     <section id="skills">
-      <h2>Skills</h2>
-      <div class="card skills">
-        <div class="skill"><b>Languages</b><span>C#, TypeScript, SQL</span></div>
-        <div class="skill"><b>Frameworks</b><span>.NET Core, ASP.NET Core, Entity Framework Core, Angular</span></div>
-        <div class="skill"><b>Messaging</b><span>RabbitMQ, MQTT, SignalR</span></div>
-        <div class="skill"><b>Data</b><span>PostgreSQL, TimescaleDB, PostGIS, SQL Server, MongoDB, pgvector, Dapper</span></div>
-        <div class="skill"><b>Architecture</b><span>Clean Architecture, Modular Monolith, Event-Driven, SOLID</span></div>
-        <div class="skill"><b>DevOps</b><span>Docker, Git, CI/CD, AWS (EC2, SQS), Playwright, Linux &amp; Windows</span></div>
+      <div class="label mono reveal">04 — toolbox</div>
+      <h2 class="reveal">What I work with</h2>
+      <div class="skills">
+        <div class="card reveal"><div class="kicker">Backend</div><div class="chips"><span class="chip">C#</span><span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">EF Core</span><span class="chip">Dapper</span></div></div>
+        <div class="card reveal"><div class="kicker">Messaging &amp; real-time</div><div class="chips"><span class="chip">RabbitMQ</span><span class="chip">MQTT</span><span class="chip">SignalR</span></div></div>
+        <div class="card reveal"><div class="kicker">Data</div><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">TimescaleDB</span><span class="chip">PostGIS</span><span class="chip">SQL Server</span><span class="chip">MongoDB</span><span class="chip">pgvector</span></div></div>
+        <div class="card reveal"><div class="kicker">Frontend, cloud &amp; ops</div><div class="chips"><span class="chip">TypeScript</span><span class="chip">Angular</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">CI/CD</span><span class="chip">Playwright</span></div></div>
       </div>
     </section>
 
-    <section id="education">
-      <h2>Education</h2>
-      <div class="card">
-        <div class="row">
-          <h3>B.Tech, Computer Science &amp; Engineering</h3>
-          <span class="date">2018 – 2022</span>
+    <section id="contact">
+      <div class="cta reveal">
+        <div class="status" style="margin-bottom:18px"><span class="dot"></span> Usually replies within a day</div>
+        <h2>Let's build something reliable.</h2>
+        <p>Hiring for backend or distributed systems, or just want to talk .NET and Postgres? My inbox is open.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:rajeevupadhyay608@gmail.com">rajeevupadhyay608@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/rajeev-kumar-a23791193/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
-        <p class="muted">DCRUST, Murthal</p>
       </div>
     </section>
   </main>
 
-  <footer id="contact">
-    <div class="wrap">
-      <h2>Let's talk</h2>
-      <p class="muted">Open to backend and distributed-systems roles. My inbox is always open.</p>
-      <p style="margin-top:16px"><a class="btn primary" href="mailto:rajeevupadhyay608@gmail.com">rajeevupadhyay608@gmail.com</a></p>
-      <p class="muted" style="margin-top:24px;font-size:.85rem">Gurugram, India · Made with ☕</p>
+  <footer>
+    <div class="wrap row">
+      <span>© <span id="year">2026</span> Rajeev Kumar · Gurugram, India</span>
+      <span class="mono">B.Tech CSE · DCRUST Murthal</span>
     </div>
   </footer>
 
   <script>
     (function () {
-      var root = document.documentElement, btn = document.getElementById('theme');
-      function isDark() {
-        var t = root.getAttribute('data-theme');
-        return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-      }
-      function sync() { btn.textContent = isDark() ? '☀' : '☾'; }
+      var root = document.documentElement;
       try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
-      sync();
-      btn.addEventListener('click', function () {
-        var next = isDark() ? 'light' : 'dark';
+      document.getElementById('theme').addEventListener('click', function () {
+        var current = root.getAttribute('data-theme') ||
+          (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var next = current === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
         try { localStorage.setItem('theme', next); } catch (e) {}
-        sync();
       });
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: .08, rootMargin: '0px 0px -40px 0px' });
+      items.forEach(function (el) { io.observe(el); });
     })();
   </script>
 </body>
