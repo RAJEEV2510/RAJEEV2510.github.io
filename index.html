@@ -109,7 +109,7 @@
     @media (max-width: 520px) { nav .hide-sm { display: none; } }
 
     /* hero */
-    .hero { padding: 132px 0 56px; display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 48px; align-items: center; }
+    .hero { padding: 132px 0 56px; display: grid; grid-template-columns: minmax(0, 1fr) clamp(200px, 30vw, 290px); gap: clamp(24px, 5vw, 48px); align-items: center; }
     .hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); }
     .portrait { position: relative; margin: 0; }
     .portrait::before {
@@ -127,9 +127,11 @@
       background: rgba(15, 13, 11, .62); border: 1px solid rgba(255, 244, 230, .16);
       backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     }
-    @media (max-width: 760px) {
+    @media (max-width: 600px) {
       .hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: 104px; }
-      .portrait { order: -1; width: min(240px, 70%); }
+      .portrait { order: -1; width: 100%; }
+      .portrait::before { inset: -6px; filter: blur(18px); opacity: .4; }
+      .portrait img { aspect-ratio: 4 / 3.4; object-position: 50% 22%; border-radius: 20px; }
     }
     .status {
       display: inline-flex; align-items: center; gap: 8px;
