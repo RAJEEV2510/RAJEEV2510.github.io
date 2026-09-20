@@ -250,14 +250,20 @@
     @media (max-width: 640px) { .skills { grid-template-columns: minmax(0, 1fr); } }
 
     /* mentions */
-    .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .shots { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
     .shot { margin: 0; padding: 12px; overflow: hidden; }
+    .shot a { display: block; position: relative; }
     .shot img {
       display: block; width: 100%; height: auto; border-radius: 10px;
       background: #fff; border: 1px solid var(--border);
+      transition: transform .25s;
     }
-    .shot figcaption { color: var(--faint); font-size: .82rem; margin-top: 10px; }
-    @media (max-width: 640px) { .shots { grid-template-columns: minmax(0, 1fr); } }
+    .shot a:hover img { transform: scale(1.01); }
+    .shot figcaption {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      color: var(--faint); font-size: .82rem; margin-top: 10px;
+    }
+    .shot figcaption .zoom { color: var(--accent); white-space: nowrap; }
     .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
     .chip { font-size: .84rem; padding: 5px 11px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--border); }
 
@@ -514,12 +520,16 @@
       </p>
       <div class="shots">
         <figure class="card shot reveal">
-          <img src="img/google-ai-1.png" alt="Google AI summary describing Rajeev Kumar's developer profile and open-source presence" loading="lazy">
-          <figcaption>Profile and open-source presence</figcaption>
+          <a href="img/google-ai-1.png" target="_blank" rel="noopener">
+            <img src="img/google-ai-1.png" alt="Google AI summary describing Rajeev Kumar's developer profile and open-source presence" loading="lazy">
+          </a>
+          <figcaption><span>Profile and open-source presence</span><span class="zoom">Click to enlarge ↗</span></figcaption>
         </figure>
         <figure class="card shot reveal">
-          <img src="img/google-ai-2.png" alt="Google AI breakdown of Rajeev Kumar's public open-source contributions across Orchard Core, Angular, ng-bootstrap and others" loading="lazy">
-          <figcaption>Breakdown of public contributions</figcaption>
+          <a href="img/google-ai-2.png" target="_blank" rel="noopener">
+            <img src="img/google-ai-2.png" alt="Google AI breakdown of Rajeev Kumar's public open-source contributions across Orchard Core, Angular, ng-bootstrap and others" loading="lazy">
+          </a>
+          <figcaption><span>Breakdown of public contributions</span><span class="zoom">Click to enlarge ↗</span></figcaption>
         </figure>
       </div>
     </section>
