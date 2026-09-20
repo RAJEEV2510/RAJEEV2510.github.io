@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rajeev Kumar</title>
-  <meta name="description" content="Rajeev Kumar — full-stack software engineer building real-time IoT systems with .NET, Angular, RabbitMQ and PostgreSQL/TimescaleDB.">
-  <meta property="og:title" content="Rajeev Kumar — Full-Stack Software Engineer">
-  <meta property="og:description" content=".NET, Angular, distributed systems and real-time IoT. Open-source contributor to OrchardCore.">
+  <meta name="description" content="Rajeev Kumar — senior software engineer building real-time video-analytics systems with .NET, Angular, RabbitMQ and PostgreSQL/TimescaleDB.">
+  <meta property="og:title" content="Rajeev Kumar — Senior Software Engineer">
+  <meta property="og:description" content=".NET, Angular, distributed systems and real-time event-driven platforms. Open-source contributor to Angular and OrchardCore.">
   <meta property="og:url" content="https://rajeev2510.github.io/">
   <meta name="theme-color" content="#0f0d0b">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23f59e0b'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='700' text-anchor='middle' fill='%230f0d0b'>R</text></svg>">
@@ -248,6 +248,16 @@
     /* skills */
     .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     @media (max-width: 640px) { .skills { grid-template-columns: minmax(0, 1fr); } }
+
+    /* mentions */
+    .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .shot { margin: 0; padding: 12px; overflow: hidden; }
+    .shot img {
+      display: block; width: 100%; height: auto; border-radius: 10px;
+      background: #fff; border: 1px solid var(--border);
+    }
+    .shot figcaption { color: var(--faint); font-size: .82rem; margin-top: 10px; }
+    @media (max-width: 640px) { .shots { grid-template-columns: minmax(0, 1fr); } }
     .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
     .chip { font-size: .84rem; padding: 5px 11px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--border); }
 
@@ -282,6 +292,7 @@
     <a href="#work" class="hide-sm">Work</a>
     <a href="#deployments">Clients</a>
     <a href="#projects">Projects</a>
+    <a href="#mentions" class="hide-sm">Mentions</a>
     <a href="#contact">Contact</a>
     <button id="theme" aria-label="Toggle theme">◐</button>
   </nav>
@@ -291,9 +302,9 @@
       <span class="status reveal"><span class="dot"></span> Open to full-stack .NET + Angular roles</span>
       <h1 class="reveal">Hi, I'm Rajeev.<br>I build <span class="grad">real-time systems</span>, from .NET to Angular.</h1>
       <p class="lead reveal">
-        Full-stack software engineer with <b>5 years</b> of shipping real-time IoT and video-analytics systems —
+        Senior software engineer with <b>5 years</b> of shipping real-time video-analytics systems —
         <b>.NET Core</b> backends, <b>Angular</b> frontends, <b>RabbitMQ</b> and <b>PostgreSQL / TimescaleDB</b>.
-        Led teams of 5 and 10 on the <b>CIAL Airport</b> and <b>Jagannath</b> projects and delivered face recognition for <b>Delhi Police</b>.
+        Spent <b>2 years</b> leading teams of 5 and 10 on the <b>CIAL Airport</b> and <b>Jagannath</b> projects and delivered face recognition for <b>Delhi Police</b>.
       </p>
       <div class="actions reveal">
         <a class="btn primary" href="mailto:rajeevupadhyay608@gmail.com">Get in touch</a>
@@ -313,12 +324,12 @@
       <div class="bento">
         <div class="card lift span-2 half reveal">
           <div class="kicker">Scale</div>
-          <div class="big" style="margin-top:14px">13k+</div>
+          <div class="big" style="margin-top:14px">9.5k+</div>
           <div class="small">connected devices on one platform</div>
         </div>
         <div class="card lift span-2 half reveal">
           <div class="kicker">Throughput</div>
-          <div class="big" style="margin-top:14px"><span class="grad">4–6×</span></div>
+          <div class="big" style="margin-top:14px"><span class="grad">4×</span></div>
           <div class="small">70 → 300+ frames/sec ingestion</div>
         </div>
         <div class="card lift span-2 reveal">
@@ -329,8 +340,8 @@
         <a class="card oss span-4 reveal" href="https://github.com/OrchardCMS/OrchardCore/pull/19891" target="_blank" rel="noopener">
           <span class="arrow">↗</span>
           <div class="kicker">Open source</div>
-          <h3 style="margin-top:12px">Contributor to OrchardCore</h3>
-          <p>Merged PR #19891 in the Media module after tracing an admin usability issue to its root cause and implementing the fix across file and folder workflows — reviewed and accepted by OrchardCore maintainers.</p>
+          <h3 style="margin-top:12px">Contributor to Angular and OrchardCore</h3>
+          <p>Merged PR #19891 in the OrchardCore Media module, with three further feature PRs open. In Angular, PR #70763 documents why an installed service worker isn't replaced when only its response headers change — approved by an Angular maintainer and labelled <code>target: patch</code>.</p>
         </a>
         <div class="card span-2 reveal">
           <div class="kicker">Daily stack</div>
@@ -354,15 +365,15 @@
             <h3>i2V Systems</h3>
             <span class="date mono">Oct 2021 — Now</span>
           </div>
-          <div class="role">Software Engineer</div>
+          <div class="role">Senior Software Engineer</div>
           <ul class="points">
-            <li><b>Led a 5-person team on CIAL Airport (ICCC) and a 10-person team on Jagannath (ANPR)</b> — driving delivery from requirements to deployment, coordinating with QA and the client.</li>
-            <li><b>Handled production performance issues</b> — monitored and troubleshot memory and CPU usage to keep deployed services stable under load.</li>
-            <li>Architected backend services for a <b>city-scale IoT platform</b> — 10,000 cameras, 2,000 streetlights, 1,000 IoT devices — with an in-memory caching layer for hot lookups.</li>
-            <li>Engineered an <b>event-driven ingestion pipeline</b> on RabbitMQ/MQTT with idempotent consumers and ack/nack retries, at 99.5%+ delivery success.</li>
-            <li>Built secure <b>REST APIs</b> and <b>Angular</b> apps on a Facade-based layered architecture, including a real-time <b>GIS map</b> for live device placement and event overlays.</li>
-            <li>Owned the product's <b>Windows and Docker releases</b>, automating builds and packaging with <b>GitHub Actions</b>.</li>
-            <li>Integrated an <b>AI vision-inference service</b> with cancellation-aware calls, health checks and live SignalR status.</li>
+            <li><b>Led a 5-person team on CIAL Airport (ICCC) and a 10-person team on Jagannath (ANPR) over 2 years</b> — sprint planning, design and code reviews, QA coordination and client delivery, while hands-on in the codebase.</li>
+            <li>Architected backend services for a <b>city-scale platform</b> — 4,000 cameras, 3,000 streetlights, 1,000 underground sensors and 1,500+ tracked vehicles — integrating an external <b>AI vision-inference service</b> with health checks.</li>
+            <li>Built <b>4 platform modules</b> (ANPR, Actions, Logging, Events) and a <b>Redis caching layer</b> that eliminated repeated per-request database lookups and cut hot-path latency.</li>
+            <li>Scaled the <b>event-driven ingestion pipeline</b> on RabbitMQ/MQTT from <b>≈40 to 100+ events/sec</b> at 99.5%+ delivery success by cutting message payload size, with idempotent consumers and ack/nack retries.</li>
+            <li><b>Diagnosed and fixed production performance issues</b> — profiled memory and CPU on deployed systems and removed a single-threaded bottleneck, raising throughput <b>70 → 300+ frames/sec</b>.</li>
+            <li>Built secure <b>REST APIs</b>, <b>gRPC</b> services and <b>Angular</b> apps on a Facade-based layered architecture, including a real-time <b>GIS map</b> with live vehicle tracking and route trails from GPS telemetry.</li>
+            <li>Owned the product's <b>Windows and Docker releases</b>, automating builds and packaging with <b>GitHub Actions</b>; products cleared <b>STQC and CDAC security certification</b> (Government of India).</li>
           </ul>
         </div>
         <div class="card job reveal">
@@ -474,7 +485,7 @@
         </div>
         <div class="card lift reveal">
           <h3>GIS / Map Module</h3>
-          <p>Live placement and event overlay of cameras and IoT devices on interactive maps.</p>
+          <p>Live placement and event overlay of cameras and connected devices on interactive maps.</p>
           <div class="tags mono"><span class="tag">Angular</span><span class="tag">PostGIS</span><span class="tag">OpenLayers</span></div>
         </div>
       </div>
@@ -490,6 +501,26 @@
         <div class="card reveal"><div class="kicker">Data</div><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">TimescaleDB</span><span class="chip">SQL Server</span><span class="chip">MongoDB</span><span class="chip">Milvus</span><span class="chip">pgvector</span></div></div>
         <div class="card reveal"><div class="kicker">Testing &amp; observability</div><div class="chips"><span class="chip">xUnit</span><span class="chip">Playwright</span><span class="chip">Serilog</span><span class="chip">Seq</span><span class="chip">OpenTelemetry</span><span class="chip">Prometheus</span><span class="chip">Grafana</span></div></div>
         <div class="card reveal"><div class="kicker">DevOps &amp; cloud</div><div class="chips"><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span><span class="chip">Linux &amp; Windows</span><span class="chip">AWS · personal projects</span></div></div>
+      </div>
+    </section>
+
+    <section id="mentions">
+      <div class="label mono reveal">06 — elsewhere</div>
+      <h2 class="reveal">What Google's AI says about my open-source work</h2>
+      <p class="lead reveal" style="margin-bottom:26px">
+        Asked about <b>RAJEEV2510</b>, Google's AI assistant summarises my contributions across
+        Angular, OrchardCore, ng-bootstrap and the wider JavaScript ecosystem. The verified
+        record lives on <a href="https://github.com/RAJEEV2510" target="_blank" rel="noopener" style="color:var(--accent)">GitHub</a>.
+      </p>
+      <div class="shots">
+        <figure class="card shot reveal">
+          <img src="img/google-ai-1.png" alt="Google AI summary describing Rajeev Kumar's developer profile and open-source presence" loading="lazy">
+          <figcaption>Profile and open-source presence</figcaption>
+        </figure>
+        <figure class="card shot reveal">
+          <img src="img/google-ai-2.png" alt="Google AI breakdown of Rajeev Kumar's public open-source contributions across Orchard Core, Angular, ng-bootstrap and others" loading="lazy">
+          <figcaption>Breakdown of public contributions</figcaption>
+        </figure>
       </div>
     </section>
 
