@@ -262,22 +262,6 @@
     /* skills */
     .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     @media (max-width: 640px) { .skills { grid-template-columns: minmax(0, 1fr); } }
-
-    /* mentions */
-    .shots { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
-    .shot { margin: 0; padding: 12px; overflow: hidden; }
-    .shot a { display: block; position: relative; }
-    .shot img {
-      display: block; width: 100%; height: auto; border-radius: 10px;
-      background: #fff; border: 1px solid var(--border);
-      transition: transform .25s;
-    }
-    .shot a:hover img { transform: scale(1.01); }
-    .shot figcaption {
-      display: flex; justify-content: space-between; align-items: center; gap: 12px;
-      color: var(--faint); font-size: .82rem; margin-top: 10px;
-    }
-    .shot figcaption .zoom { color: var(--accent); white-space: nowrap; }
     .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
     .chip { font-size: .84rem; padding: 5px 11px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--border); }
 
@@ -313,7 +297,6 @@
     <a href="#deployments">Clients</a>
     <a href="#projects">Projects</a>
     <a href="#oss" class="hide-sm">Open source</a>
-    <a href="#mentions" class="hide-sm">Mentions</a>
     <a href="#contact">Contact</a>
     <button id="theme" aria-label="Toggle theme">◐</button>
   </nav>
@@ -627,30 +610,6 @@ question ─▶ <span class="k">planner (no model)</span> ─▶ search / count 
         <div class="card reveal"><div class="kicker">AI &amp; computer vision</div><div class="chips"><span class="chip">YOLO</span><span class="chip">ONNX Runtime</span><span class="chip">PyTorch</span><span class="chip">Ollama</span><span class="chip">Claude API · tool use</span></div></div>
         <div class="card reveal"><div class="kicker">DevOps</div><div class="chips"><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span><span class="chip">Linux &amp; Windows</span></div></div>
         <div class="card reveal"><div class="kicker">Cloud</div><div class="chips"><span class="chip">AWS EC2</span><span class="chip">AWS S3</span><span class="chip">AWS RDS PostgreSQL</span><span class="chip">AWS VPC</span><span class="chip">AWS IAM</span><span class="chip">Security Groups</span><span class="chip">Azure</span></div></div>
-      </div>
-    </section>
-
-    <section id="mentions">
-      <div class="label mono reveal">07 — elsewhere</div>
-      <h2 class="reveal">What Google's AI says about my open-source work</h2>
-      <p class="lead reveal" style="margin-bottom:26px">
-        Asked about <b>RAJEEV2510</b>, Google's AI assistant summarises my contributions across
-        Angular, OrchardCore, ng-bootstrap and the wider JavaScript ecosystem. The verified
-        record lives on <a href="https://github.com/RAJEEV2510" target="_blank" rel="noopener" style="color:var(--accent)">GitHub</a>.
-      </p>
-      <div class="shots">
-        <figure class="card shot reveal">
-          <a href="img/google-ai-1.png" target="_blank" rel="noopener">
-            <img src="img/google-ai-1.png" alt="Google AI summary describing Rajeev Kumar's developer profile and open-source presence" loading="lazy">
-          </a>
-          <figcaption><span>Profile and open-source presence</span><span class="zoom">Click to enlarge ↗</span></figcaption>
-        </figure>
-        <figure class="card shot reveal">
-          <a href="img/google-ai-2.png" target="_blank" rel="noopener">
-            <img src="img/google-ai-2.png" alt="Google AI breakdown of Rajeev Kumar's public open-source contributions across Orchard Core, Angular, ng-bootstrap and others" loading="lazy">
-          </a>
-          <figcaption><span>Breakdown of public contributions</span><span class="zoom">Click to enlarge ↗</span></figcaption>
-        </figure>
       </div>
     </section>
 
