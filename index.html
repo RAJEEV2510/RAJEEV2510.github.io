@@ -202,7 +202,14 @@
     .flow { font-size: .78rem; line-height: 1.7; color: var(--muted); margin-top: 14px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; white-space: pre; overflow-x: auto; }
     .flow .k { color: var(--accent); }
     .feature ul.points { margin-top: 12px; }
-    .tag.priv { border-style: dashed; }
+    .prs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .prs > * { min-width: 0; }
+    @media (max-width: 640px) { .prs { grid-template-columns: minmax(0, 1fr); } }
+    .pr-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-right: 22px; }
+    .pr-repo { font-size: .8rem; color: var(--text); }
+    .pr-state { font-size: .66rem; font-weight: 700; letter-spacing: .06em; padding: 3px 7px; border-radius: 6px; }
+    .pr-state.merged { color: var(--green); background: color-mix(in srgb, var(--green) 15%, transparent); }
+    .pr-state.open { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
 
     /* deployments */
     .deploys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
@@ -305,6 +312,7 @@
     <a href="#work" class="hide-sm">Work</a>
     <a href="#deployments">Clients</a>
     <a href="#projects">Projects</a>
+    <a href="#oss" class="hide-sm">Open source</a>
     <a href="#mentions" class="hide-sm">Mentions</a>
     <a href="#contact">Contact</a>
     <button id="theme" aria-label="Toggle theme">◐</button>
@@ -318,7 +326,7 @@
         Senior software engineer with <b>5 years</b> of shipping real-time video-analytics systems —
         <b>.NET Core</b> backends, <b>Angular</b> frontends, <b>RabbitMQ</b> and <b>PostgreSQL / TimescaleDB</b>.
         Spent <b>2 years</b> leading teams of 5 and 10 on the <b>CIAL Airport</b> and <b>Jagannath</b> projects and delivered face recognition for <b>Delhi Police</b>.
-        Lately building <b>AI video analytics</b> — on-device YOLO detection, a face-embedding model trained from scratch, and plain-English search over camera footage.
+        Lately building <b>AI video analytics</b> — on-device YOLO detection and plain-English search over camera footage.
       </p>
       <div class="actions reveal">
         <a class="btn primary" href="mailto:rajeevupadhyay608@gmail.com">Get in touch</a>
@@ -351,11 +359,11 @@
           <div class="big" style="margin-top:14px">99.5%</div>
           <div class="small">delivery success at 100+ events/sec</div>
         </div>
-        <a class="card oss span-4 reveal" href="https://github.com/OrchardCMS/OrchardCore/pull/19891" target="_blank" rel="noopener">
-          <span class="arrow">↗</span>
+        <a class="card oss span-4 reveal" href="#oss">
+          <span class="arrow">↓</span>
           <div class="kicker">Open source</div>
-          <h3 style="margin-top:12px">Contributor to Angular and OrchardCore</h3>
-          <p>Merged PR #19891 in the OrchardCore Media module, with three further feature PRs open. In Angular, PR #70763 documents why an installed service worker isn't replaced when only its response headers change — approved by an Angular maintainer and labelled <code>target: patch</code>.</p>
+          <h3 style="margin-top:12px">4 merged PRs in Angular and OrchardCore</h3>
+          <p>Angular's service-worker docs (#70763) and three OrchardCore features across Media, Workflows and Roles — plus PRs in review at <b>dotnet/sdk</b>, <b>Uno Platform</b> and <b>Angular Components</b>.</p>
         </a>
         <div class="card span-2 reveal">
           <div class="kicker">Daily stack</div>
@@ -470,12 +478,6 @@ question ─▶ <span class="k">planner (no model)</span> ─▶ search / count 
           </ul>
           <div class="tags mono"><span class="tag">.NET 8</span><span class="tag">Angular 20</span><span class="tag">YOLOv10 · ONNX</span><span class="tag">TimescaleDB</span><span class="tag">WebRTC</span><span class="tag">SignalR</span><span class="tag">Ollama · Claude</span></div>
         </a>
-        <div class="card lift reveal">
-          <div class="kicker">Deep learning · from scratch</div>
-          <h3 style="margin-top:10px">Face embedding model</h3>
-          <p>Image in, one 512-d L2-normalised embedding per face out. Trained from scratch in PyTorch — my own face detector with 5-point landmarks, similarity alignment, MobileFaceNet / IResNet backbones and an ArcFace margin head. No pretrained weights; evaluated with TAR@FAR on held-out identities.</p>
-          <div class="tags mono"><span class="tag">PyTorch</span><span class="tag">ArcFace</span><span class="tag">Computer vision</span><span class="tag priv">private repo</span></div>
-        </div>
         <a class="card reveal" href="https://github.com/RAJEEV2510/distributed-rate-limiter" target="_blank" rel="noopener">
           <span class="arrow">↗</span>
           <h3>distributed-rate-limiter</h3>
@@ -511,12 +513,6 @@ question ─▶ <span class="k">planner (no model)</span> ─▶ search / count 
           <p>Per-frame metadata for ~400 cameras. Removed a single-threaded bottleneck: 70 → 300+ frames/sec.</p>
           <div class="tags mono"><span class="tag">.NET</span><span class="tag">TimescaleDB</span><span class="tag">at i2V</span></div>
         </div>
-        <div class="card lift reveal">
-          <div class="kicker">Tooling</div>
-          <h3 style="margin-top:10px">Resume-as-code</h3>
-          <p>A LaTeX resume system: one master source of truth, and a tailored copy per job description with the JD and a notes file recording the keywords targeted — tailoring only rewords and reorders, never invents. PDFs build with a vendored Tectonic, no install.</p>
-          <div class="tags mono"><span class="tag">LaTeX</span><span class="tag">Tectonic</span><span class="tag priv">private repo</span></div>
-        </div>
       </div>
 
       <div class="sub mono reveal">// platform modules behind these deployments</div>
@@ -544,22 +540,98 @@ question ─▶ <span class="k">planner (no model)</span> ─▶ search / count 
       </div>
     </section>
 
+    <section id="oss">
+      <div class="label mono reveal">05 — open source</div>
+      <h2 class="reveal">Open-source contributions</h2>
+      <p class="muted reveal" style="margin:-10px 0 24px;max-width:640px">
+        Fixes and features upstreamed to the frameworks I use every day — Angular, OrchardCore (ASP.NET Core CMS), the .NET SDK and Uno Platform.
+      </p>
+      <div class="sub mono reveal" style="margin-top:0">// merged</div>
+      <div class="prs">
+        <a class="card pr reveal" href="https://github.com/angular/angular/pull/70763" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="pr-head"><span class="pr-state merged mono">MERGED</span><span class="mono pr-repo">angular/angular #70763</span></div>
+          <p>Explain how to update an installed service worker when only its response headers change</p>
+          <div class="tags mono"><span class="tag">Docs · service worker</span></div>
+        </a>
+        <a class="card pr reveal" href="https://github.com/OrchardCMS/OrchardCore/pull/19896" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="pr-head"><span class="pr-state merged mono">MERGED</span><span class="mono pr-repo">OrchardCMS/OrchardCore #19896</span></div>
+          <p>Make the first event added to a workflow its startup task</p>
+          <div class="tags mono"><span class="tag">Workflows</span></div>
+        </a>
+        <a class="card pr reveal" href="https://github.com/OrchardCMS/OrchardCore/pull/19895" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="pr-head"><span class="pr-state merged mono">MERGED</span><span class="mono pr-repo">OrchardCMS/OrchardCore #19895</span></div>
+          <p>Add “Save &amp; Configure” and “Save and continue” to the role Create and Edit pages</p>
+          <div class="tags mono"><span class="tag">Roles · admin UI</span></div>
+        </a>
+        <a class="card pr reveal" href="https://github.com/OrchardCMS/OrchardCore/pull/19891" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="pr-head"><span class="pr-state merged mono">MERGED</span><span class="mono pr-repo">OrchardCMS/OrchardCore #19891</span></div>
+          <p>Show the hand cursor on Media menu items</p>
+          <div class="tags mono"><span class="tag">Media</span></div>
+        </a>
+      </div>
+      <div class="sub mono reveal">// in review</div>
+      <div class="prs">
+        <a class="card pr reveal" href="https://github.com/dotnet/sdk/pull/56406" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="pr-head"><span class="pr-state open mono">IN REVIEW</span><span class="mono pr-repo">dotnet/sdk #56406</span></div>
+          <p>Validate workload --source feeds before acquiring manifests</p>
+          <div class="tags mono"><span class="tag">.NET CLI</span></div>
+        </a>
+        <a class="card pr reveal" href="https://github.com/unoplatform/uno/pull/24766" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="pr-head"><span class="pr-state open mono">IN REVIEW</span><span class="mono pr-repo">unoplatform/uno #24766</span></div>
+          <p>Disable all log levels when the Microsoft.Extensions.Logging logger enables none</p>
+          <div class="tags mono"><span class="tag">Logging</span></div>
+        </a>
+        <a class="card pr reveal" href="https://github.com/angular/components/pull/33822" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="pr-head"><span class="pr-state open mono">IN REVIEW</span><span class="mono pr-repo">angular/components #33822</span></div>
+          <p>Add an example for showing errors from a parent form group (Material input)</p>
+          <div class="tags mono"><span class="tag">Docs · Material</span></div>
+        </a>
+        <a class="card pr reveal" href="https://github.com/OrchardCMS/OrchardCore/pull/19897" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="pr-head"><span class="pr-state open mono">IN REVIEW</span><span class="mono pr-repo">OrchardCMS/OrchardCore #19897</span></div>
+          <p>Add an optional &lt;time&gt; tag to the DateTime and TimeSpan shapes</p>
+          <div class="tags mono"><span class="tag">Display shapes</span></div>
+        </a>
+        <a class="card pr reveal" href="https://github.com/ng-bootstrap/ng-bootstrap/pull/4558" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="pr-head"><span class="pr-state open mono">IN REVIEW</span><span class="mono pr-repo">ng-bootstrap/ng-bootstrap #4558</span></div>
+          <p>Re-validate the timepicker when a wrong time format is entered again</p>
+          <div class="tags mono"><span class="tag">Timepicker</span></div>
+        </a>
+        <a class="card pr reveal" href="https://github.com/swimlane/ngx-charts/pull/1802" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="pr-head"><span class="pr-state open mono">IN REVIEW</span><span class="mono pr-repo">swimlane/ngx-charts #1802</span></div>
+          <p>Fix gauge display for values below 10 when no units are set</p>
+          <div class="tags mono"><span class="tag">Charts</span></div>
+        </a>
+      </div>
+    </section>
+
     <section id="skills">
-      <div class="label mono reveal">05 — toolbox</div>
+      <div class="label mono reveal">06 — toolbox</div>
       <h2 class="reveal">What I work with</h2>
       <div class="skills">
         <div class="card reveal"><div class="kicker">Backend</div><div class="chips"><span class="chip">C#</span><span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">EF Core</span><span class="chip">Dapper</span><span class="chip">REST APIs</span></div></div>
         <div class="card reveal"><div class="kicker">Frontend &amp; GIS</div><div class="chips"><span class="chip">Angular</span><span class="chip">TypeScript</span><span class="chip">OpenLayers</span><span class="chip">GeoServer</span><span class="chip">PostGIS</span></div></div>
         <div class="card reveal"><div class="kicker">Messaging &amp; real-time</div><div class="chips"><span class="chip">RabbitMQ</span><span class="chip">MQTT</span><span class="chip">SignalR</span><span class="chip">System.Threading.Channels</span></div></div>
         <div class="card reveal"><div class="kicker">Data</div><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">TimescaleDB</span><span class="chip">SQL Server</span><span class="chip">MongoDB</span><span class="chip">Milvus</span><span class="chip">pgvector</span></div></div>
+        <div class="card wide reveal"><div class="kicker">Architecture &amp; design</div><div class="chips"><span class="chip">System design (HLD)</span><span class="chip">Low-level design (LLD)</span><span class="chip">Design patterns</span><span class="chip">SOLID</span><span class="chip">Clean Architecture</span><span class="chip">DDD</span><span class="chip">CQRS</span><span class="chip">Event-driven architecture</span><span class="chip">Microservices</span><span class="chip">Outbox &amp; idempotency</span></div></div>
         <div class="card reveal"><div class="kicker">Testing &amp; observability</div><div class="chips"><span class="chip">xUnit</span><span class="chip">Playwright</span><span class="chip">Serilog</span><span class="chip">Seq</span><span class="chip">OpenTelemetry</span><span class="chip">Prometheus</span><span class="chip">Grafana</span></div></div>
-        <div class="card reveal"><div class="kicker">AI &amp; computer vision</div><div class="chips"><span class="chip">YOLO</span><span class="chip">ONNX Runtime</span><span class="chip">PyTorch</span><span class="chip">ArcFace embeddings</span><span class="chip">Ollama</span><span class="chip">Claude API · tool use</span></div></div>
-        <div class="card wide reveal"><div class="kicker">DevOps &amp; cloud</div><div class="chips"><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span><span class="chip">Linux &amp; Windows</span><span class="chip">Azure</span><span class="chip">AWS · personal projects</span></div></div>
+        <div class="card reveal"><div class="kicker">AI &amp; computer vision</div><div class="chips"><span class="chip">YOLO</span><span class="chip">ONNX Runtime</span><span class="chip">PyTorch</span><span class="chip">Ollama</span><span class="chip">Claude API · tool use</span></div></div>
+        <div class="card reveal"><div class="kicker">DevOps</div><div class="chips"><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span><span class="chip">Linux &amp; Windows</span></div></div>
+        <div class="card reveal"><div class="kicker">Cloud</div><div class="chips"><span class="chip">AWS EC2</span><span class="chip">AWS S3</span><span class="chip">AWS RDS PostgreSQL</span><span class="chip">AWS VPC</span><span class="chip">AWS IAM</span><span class="chip">Security Groups</span><span class="chip">Azure</span></div></div>
       </div>
     </section>
 
     <section id="mentions">
-      <div class="label mono reveal">06 — elsewhere</div>
+      <div class="label mono reveal">07 — elsewhere</div>
       <h2 class="reveal">What Google's AI says about my open-source work</h2>
       <p class="lead reveal" style="margin-bottom:26px">
         Asked about <b>RAJEEV2510</b>, Google's AI assistant summarises my contributions across
