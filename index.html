@@ -196,6 +196,13 @@
     .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
     .tag { font-size: .72rem; padding: 4px 9px; border-radius: 7px; border: 1px solid var(--border); color: var(--muted); }
     .sub { color: var(--faint); font-size: .85rem; margin: 36px 0 12px; }
+    .projects .wide, .skills .wide { grid-column: 1 / -1; }
+    .feature { background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, transparent), transparent 55%), var(--card); }
+    .feature h3 { font-size: 1.35rem; }
+    .flow { font-size: .78rem; line-height: 1.7; color: var(--muted); margin-top: 14px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; white-space: pre; overflow-x: auto; }
+    .flow .k { color: var(--accent); }
+    .feature ul.points { margin-top: 12px; }
+    .tag.priv { border-style: dashed; }
 
     /* deployments */
     .deploys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
@@ -311,6 +318,7 @@
         Senior software engineer with <b>5 years</b> of shipping real-time video-analytics systems —
         <b>.NET Core</b> backends, <b>Angular</b> frontends, <b>RabbitMQ</b> and <b>PostgreSQL / TimescaleDB</b>.
         Spent <b>2 years</b> leading teams of 5 and 10 on the <b>CIAL Airport</b> and <b>Jagannath</b> projects and delivered face recognition for <b>Delhi Police</b>.
+        Lately building <b>AI video analytics</b> — on-device YOLO detection, a face-embedding model trained from scratch, and plain-English search over camera footage.
       </p>
       <div class="actions reveal">
         <a class="btn primary" href="mailto:rajeevupadhyay608@gmail.com">Get in touch</a>
@@ -447,6 +455,39 @@
       <div class="label mono reveal">04 — projects</div>
       <h2 class="reveal">Things I've built</h2>
       <div class="projects">
+        <a class="card feature wide reveal" href="https://github.com/RAJEEV2510/lens" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <div class="kicker">Featured · AI video analytics</div>
+          <h3 style="margin-top:10px">Lens — ask your cameras in plain English</h3>
+          <p>Drop in footage or an RTSP camera and ask <i>"when was the first bus seen?"</i> or <i>"how many trucks passed after 6 pm?"</i> — answers come back with the matching frames, boxes drawn on. Runs fully local; nothing needs the cloud.</p>
+          <div class="flow mono">video / RTSP ─▶ ffmpeg ─▶ <span class="k">YOLOv10 (ONNX Runtime, CPU)</span> ─▶ TimescaleDB
+question ─▶ <span class="k">planner (no model)</span> ─▶ search / count ─▶ answer + frames
+         └─ else ─▶ <span class="k">local LLM (Ollama) or Claude</span> ─▶ same tools</div>
+          <ul class="points">
+            <li>Object detection on CPU at <b>13–19 frames/s</b> on a laptop — 80 COCO classes plus a separate face-detection model.</li>
+            <li>Everyday questions answered <b>straight from the database in milliseconds</b>; harder ones go to a local open model or Claude via tool calls, with every call shown in the UI.</li>
+            <li><b>Angular 20</b> live wall of 1–16 cameras over <b>WebRTC</b> (MediaMTX) with detection boxes streamed over <b>SignalR</b>, plus search, upload and background indexing.</li>
+          </ul>
+          <div class="tags mono"><span class="tag">.NET 8</span><span class="tag">Angular 20</span><span class="tag">YOLOv10 · ONNX</span><span class="tag">TimescaleDB</span><span class="tag">WebRTC</span><span class="tag">SignalR</span><span class="tag">Ollama · Claude</span></div>
+        </a>
+        <div class="card lift reveal">
+          <div class="kicker">Deep learning · from scratch</div>
+          <h3 style="margin-top:10px">Face embedding model</h3>
+          <p>Image in, one 512-d L2-normalised embedding per face out. Trained from scratch in PyTorch — my own face detector with 5-point landmarks, similarity alignment, MobileFaceNet / IResNet backbones and an ArcFace margin head. No pretrained weights; evaluated with TAR@FAR on held-out identities.</p>
+          <div class="tags mono"><span class="tag">PyTorch</span><span class="tag">ArcFace</span><span class="tag">Computer vision</span><span class="tag priv">private repo</span></div>
+        </div>
+        <a class="card reveal" href="https://github.com/RAJEEV2510/distributed-rate-limiter" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <h3>distributed-rate-limiter</h3>
+          <p>Rate limiting for ASP.NET Core shared across API instances — fixed window, sliding log, sliding counter and token bucket, each as an atomic Redis Lua script.</p>
+          <div class="tags mono"><span class="tag">ASP.NET Core</span><span class="tag">Redis</span><span class="tag">Lua</span></div>
+        </a>
+        <a class="card reveal" href="https://github.com/RAJEEV2510/iot-telemetry-timescale" target="_blank" rel="noopener">
+          <span class="arrow">↗</span>
+          <h3>iot-telemetry-timescale</h3>
+          <p>Real-time IoT telemetry: .NET 8 MQTT ingestion with batched binary COPY into TimescaleDB — hypertables, compression, continuous aggregates — and a live SignalR dashboard.</p>
+          <div class="tags mono"><span class="tag">.NET 8</span><span class="tag">MQTT</span><span class="tag">TimescaleDB</span></div>
+        </a>
         <a class="card reveal" href="https://github.com/RAJEEV2510/dotnet-event-pipeline" target="_blank" rel="noopener">
           <span class="arrow">↗</span>
           <h3>dotnet-event-pipeline</h3>
@@ -469,6 +510,12 @@
           <h3>TimescaleDB Ingestion</h3>
           <p>Per-frame metadata for ~400 cameras. Removed a single-threaded bottleneck: 70 → 300+ frames/sec.</p>
           <div class="tags mono"><span class="tag">.NET</span><span class="tag">TimescaleDB</span><span class="tag">at i2V</span></div>
+        </div>
+        <div class="card lift reveal">
+          <div class="kicker">Tooling</div>
+          <h3 style="margin-top:10px">Resume-as-code</h3>
+          <p>A LaTeX resume system: one master source of truth, and a tailored copy per job description with the JD and a notes file recording the keywords targeted — tailoring only rewords and reorders, never invents. PDFs build with a vendored Tectonic, no install.</p>
+          <div class="tags mono"><span class="tag">LaTeX</span><span class="tag">Tectonic</span><span class="tag priv">private repo</span></div>
         </div>
       </div>
 
@@ -506,7 +553,8 @@
         <div class="card reveal"><div class="kicker">Messaging &amp; real-time</div><div class="chips"><span class="chip">RabbitMQ</span><span class="chip">MQTT</span><span class="chip">SignalR</span><span class="chip">System.Threading.Channels</span></div></div>
         <div class="card reveal"><div class="kicker">Data</div><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">TimescaleDB</span><span class="chip">SQL Server</span><span class="chip">MongoDB</span><span class="chip">Milvus</span><span class="chip">pgvector</span></div></div>
         <div class="card reveal"><div class="kicker">Testing &amp; observability</div><div class="chips"><span class="chip">xUnit</span><span class="chip">Playwright</span><span class="chip">Serilog</span><span class="chip">Seq</span><span class="chip">OpenTelemetry</span><span class="chip">Prometheus</span><span class="chip">Grafana</span></div></div>
-        <div class="card reveal"><div class="kicker">DevOps &amp; cloud</div><div class="chips"><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span><span class="chip">Linux &amp; Windows</span><span class="chip">AWS · personal projects</span></div></div>
+        <div class="card reveal"><div class="kicker">AI &amp; computer vision</div><div class="chips"><span class="chip">YOLO</span><span class="chip">ONNX Runtime</span><span class="chip">PyTorch</span><span class="chip">ArcFace embeddings</span><span class="chip">Ollama</span><span class="chip">Claude API · tool use</span></div></div>
+        <div class="card wide reveal"><div class="kicker">DevOps &amp; cloud</div><div class="chips"><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span><span class="chip">Linux &amp; Windows</span><span class="chip">Azure</span><span class="chip">AWS · personal projects</span></div></div>
       </div>
     </section>
 
